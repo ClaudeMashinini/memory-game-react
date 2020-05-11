@@ -17,8 +17,8 @@ export default function Grid({
           key={card.id}
           id={card.id}
           type={card.type}
-          width={dimension / 6}
-          height={dimension / 5}
+          width={dimension / 6.5}
+          height={dimension / 5.5}
           flipped={flipped.includes(card.id)}
           handleClick={() => handleClick(card.id)}
           disabled={disabled}

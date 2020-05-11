@@ -22,13 +22,30 @@ export default function Presentation() {
   const handleClick = (id) => {
     setDisabled(true);
     if (flipped.length === 0) {
-      setFlipped([id]);
-      setDisabled(false);
-      return;
+      setFlipped([id])
+      setDisabled(false)
     } else {
-      if (repeatClick(id)) return;
+      if (repeatClick(id)) return
+      setFlipped([flipped[0], id])
+      if (isMatch(id)) {
+        setSolved([...solved, flipped[0], id])
+        resetCards()
+      } else {
+        setTimeout(resetCards, 1500)
+      }
     }
-  };
+  }
+
+  const isMatch = (id) => {
+    const clickedCard = cards.find(card) => card.id === id)
+    const flipped = cards.find((card) => flipped[0] === id)
+    return flippedCard.type === clickedCard.type
+}
+const resetCards = () => {
+  setFlipped([])
+  setDisabled(false)
+  }
+  
   const repeatClick = (id) => flipped.includes(id);
   const resizeGrid = () => {
     setDimension(
