@@ -8,6 +8,7 @@ export default function Grid({
   disabled,
   cards,
   flipped,
+  solved,
   handleClick,
 }) {
   return (
@@ -20,8 +21,9 @@ export default function Grid({
           width={dimension / 6.5}
           height={dimension / 5.5}
           flipped={flipped.includes(card.id)}
+          solved={solved.includes(card.id)}
           handleClick={() => handleClick(card.id)}
-          disabled={disabled}
+          disabled={disabled || solved.includes(card.id)}
         />
       ))}
     </div>
@@ -34,4 +36,5 @@ Grid.PropTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   flipped: PropTypes.arrayOf(PropTypes.number).number,
   handleClick: PropTypes.func.isRequired,
+  solved: PropTypes.arrayOf(PropTypes.number).number,
 };

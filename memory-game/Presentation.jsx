@@ -67,5 +67,5 @@ const resetCards = () => {
         handleClick={handleClick}
       />
     </div>
-  );
+  )
 }
